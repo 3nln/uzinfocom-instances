@@ -8,7 +8,7 @@ on:
 jobs:
   test-flake:
     name: "Test flake options"
-    runs-on: self-hosted
+    runs-on: testing
 
     steps:
       - name: Check out the repository
@@ -33,7 +33,7 @@ jobs:
             "Internal-Xinux",
             "Uportal-State",
           ]
-    runs-on: self-hosted
+    runs-on: testing
 
     steps:
       - name: Check out the repository
