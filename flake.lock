@@ -808,11 +808,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1773578094,
-        "narHash": "sha256-oLgaOTMkNnAVL1RoM/fUWnf7nm7meJgSTVnhLMQS/6E=",
+        "lastModified": 1773778590,
+        "narHash": "sha256-gyu1DlhrYXrKnzN5PfGcMFuHUpOhzC+cSUIcsuTcMe4=",
         "owner": "uchar-org",
         "repo": "application",
-        "rev": "61c1a6195fd34fc0d698d47bb108d19b14cd569b",
+        "rev": "fdd50e06c86cd44de26fae9b3696d97287fd730a",
         "type": "github"
       },
       "original": {
