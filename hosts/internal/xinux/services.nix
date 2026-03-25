@@ -35,20 +35,6 @@ in
         sopsFile = ../../../secrets/git/key.hell;
         path = "/etc/forgejo/ssh/id_forgejo";
       };
-
-      # Runners
-      "forgejo/deploying" = runner-sm;
-      "github/deploying/uzinfocom" = runner-sm;
-      "github/deploying/xinux" = runner-sm;
-    };
-
-    templates = {
-      "gitea-forgejo-uzinfocom" = {
-        owner = config.uzinfocom.runners.user;
-        content = ''
-          TOKEN=${config.sops.placeholder."forgejo/deploying"}
-        '';
-      };
     };
   };
 
@@ -90,33 +76,6 @@ in
         private = config.sops.secrets."git/key".path;
         public = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEouecGbpK0oYlJyQbxBMDlMVComaCi7fQtCM4jtTgm7 admin@oss.uzinfocom.uz";
       };
-    };
-
-    # * -> git*.*
-    runners = {
-      enable = true;
-      instances = [
-        {
-          name = "Deploying";
-          type = "forgejo";
-          url = "https://git.oss.uzinfocom.uz";
-          token = config.sops.templates."gitea-forgejo-uzinfocom".path;
-        }
-        {
-          name = "Uzinfocom-Deploying";
-          type = "github";
-          label = "deploying";
-          url = "https://github.com/uzinfocom-org";
-          token = config.sops.secrets."github/deploying/uzinfocom".path;
-        }
-        {
-          name = "Xinux-Deploying";
-          type = "github";
-          label = "deploying";
-          url = "https://github.com/xinux-org";
-          token = config.sops.secrets."github/deploying/xinux".path;
-        }
-      ];
     };
   };
 }

@@ -186,8 +186,13 @@
       hydraJobs =
         let
           confs = inputs.self.nixosConfigurations;
-          hosts = builtins.attrNames confs;
         in
-        map (h: confs.${h}.config.system.build.toplevel) hosts;
+        confs
+        |> builtins.attrNames
+        |> map (h: {
+          name = h;
+          value = confs.${h}.config.system.build.toplevel;
+        })
+        |> builtins.listToAttrs;
     };
 }
