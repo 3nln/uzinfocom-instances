@@ -516,12 +516,8 @@ in
         };
 
         withJemalloc = true;
-
         extraConfigFiles = config.uzinfocom.matrix.synapse.extra-config-files;
-
-        extras = [
-          "oidc"
-        ];
+        extras = [ "oidc" ];
 
         plugins =
           with config.services.matrix-synapse.package.plugins;

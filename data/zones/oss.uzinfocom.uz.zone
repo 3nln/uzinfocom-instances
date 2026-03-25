@@ -21,6 +21,8 @@ ns2    IN    A     91.212.89.28
 ; Playground (Bombing Zone)
 ns3    IN    A     135.181.165.24
 ns3    IN    AAAA  2a01:4f9:3a:1ca2::2
+; Laboratory
+ns4    IN    A     185.137.152.86
 
 ; ==> Authentication Endpoints
 auth   IN    CNAME ns1.oss.uzinfocom.uz.
