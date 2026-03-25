@@ -74,7 +74,22 @@ let
       inherit inputs outputs;
       list = parseCategory path;
     };
+
+  hostsToJobs =
+    { confs }:
+    confs
+    |> builtins.attrNames
+    |> map (h: {
+      name = h;
+      value = confs.${h}.config.system.build.toplevel;
+    })
+    |> builtins.listToAttrs;
 in
 {
-  inherit makeSystem attrSystem autoConf;
+  inherit
+    makeSystem
+    attrSystem
+    autoConf
+    hostsToJobs
+    ;
 }

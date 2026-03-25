@@ -183,16 +183,6 @@
       nixosConfigurations = lib.hosts.autoConf { inherit inputs outputs; };
 
       # Hydra jobs for caching
-      hydraJobs =
-        let
-          confs = inputs.self.nixosConfigurations;
-        in
-        confs
-        |> builtins.attrNames
-        |> map (h: {
-          name = h;
-          value = confs.${h}.config.system.build.toplevel;
-        })
-        |> builtins.listToAttrs;
+      hydraJobs = lib.hosts.hostsToJobs { confs = inputs.self.nixosConfigurations; };
     };
 }
