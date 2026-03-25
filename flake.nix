@@ -181,5 +181,13 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = lib.hosts.autoConf { inherit inputs outputs; };
+
+      # Hydra jobs for caching
+      hydraJobs =
+        let
+          confs = inputs.self.nixosConfigurations;
+          hosts = builtins.attrNames confs;
+        in
+        map (h: confs.${h}.config.system.build.toplevel) hosts;
     };
 }
