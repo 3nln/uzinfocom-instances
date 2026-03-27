@@ -11,5 +11,5 @@ $TTL 86400
 @      IN    NS    ns2.oss.uzinfocom.uz.
 
 ; ==> Entry points
-@      IN    A     91.212.89.25
-www    IN    CNAME uchar.uz.
+@      IN    A     185.137.152.86
+www    IN    CNAME funksiyachi.uz.
