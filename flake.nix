@@ -97,6 +97,12 @@
     # Matrix sygnal
     sygnal.url = "github:uchar-org/sygnal";
 
+    # Xinux website
+    xinux-website = {
+      url = "github:xinux-org/website";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Xinux Bot from Xinux Community
     xinuxmgr-bot = {
       url = "github:xinux-org/telegram";
